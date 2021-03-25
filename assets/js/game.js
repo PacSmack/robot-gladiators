@@ -59,12 +59,14 @@ var fight = function (enemyName) {
         );
 
         // check player's health
-        if (playerHealth <= 0) {
-            window.alert(playerName + ' has died!');
-            // leave while() loop if player is dead
-            break;
-        } else {
+        if (playerHealth > 0) {
             window.alert(playerName + ' still has ' + playerHealth + ' health left.');
+
+        }
+        else {
+            window.alert(playerName + ' has died!');
+            window.alert('You have lost your robot in battle! Game Over!');
+            break;
         }
     }
 };
@@ -82,15 +84,7 @@ for (var i = 0; i < enemyNames.length; i++) {
         // reset enemyHealth before starting new fight
         enemyHealth = 50;
 
-        // use debugger to pause script from running and check what's going on at that moment in the code
-        // debugger;
-
         // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
         fight(pickedEnemyName);
-    }
-    // if player isn't alive, stop the game
-    else {
-        window.alert("You have lost your robot in battle! Game Over!");
-        break;
     }
 }
